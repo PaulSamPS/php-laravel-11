@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  api:
+    image: postgres
+    ports:
+      - '5555:5432'
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_DATABASE}
+    volumes:
+      - ./database/postgres_data:/var/lib/postgresql/data
